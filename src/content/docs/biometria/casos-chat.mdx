@@ -11,7 +11,7 @@ prev: false
 next: false
 
 --- 
-import { Steps } from '@astrojs/starlight/components';    
+import { Steps } from '@astrojs/starlight/components';     
 import { Tabs, TabItem } from '@astrojs/starlight/components'; 
 
 ### Toma de huellas
@@ -109,8 +109,9 @@ Si no se detecta la MAC del equipo en un entorno Citrix, sigue los siguientes pa
       - Luego **Fallas de Equipos y Periféricos**
       - Esto permitirá que alguien de la mesa de soporte los contacte para validar y solucionar el problema.
 </Steps>
+ 
 
-### Falla en Migrate
+### Falla en Proceso de migración (Migrate)
 
 Si se encuentra una falla en el **proceso de migración** donde la validación es exitosa pero al intentar continuar en Greta no es posible, se deben seguir estos pasos:
 
@@ -202,3 +203,10 @@ Para migrar los usuarios a la Biometría Cloud, sigue estos pasos:
      ```sql
      UPDATE TB_CERO_PAPEL_PARAMETRO SET VALOR_PARAMETRO = 'codigos_actualizados' WHERE ID_PARAMETRO = 2322;
      ```
+
+### Error de identidad Activa
+ 
+Este mensaje indica que ya tiene una validación deberían seguir con el proceso desde el CRM. No hay necesidad de hacer otra validación, debido a que con esta pueden firmar.
+
+**PERO** si el CRM no reconoce la validación, se tiene que tratar/hacer como si [fallara el proceso de migración](#falla-en-proceso-de-migración-migrate).  
+ 
