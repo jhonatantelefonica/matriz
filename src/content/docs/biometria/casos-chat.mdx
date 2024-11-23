@@ -1,0 +1,204 @@
+---
+title: Casos reportados en el chat  
+sidebar:
+  label: Casos reportados
+
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 4
+ 
+prev: false
+next: false
+
+--- 
+import { Steps } from '@astrojs/starlight/components';    
+import { Tabs, TabItem } from '@astrojs/starlight/components'; 
+
+### Toma de huellas
+
+<Steps>
+
+1. **Colocación del Dedo**:
+    <p>
+      Asegúrate de que el dedo se coloque en el lector de huellas cubriendo la mayor parte de la superficie de la pantalla.
+    </p>
+    
+2. **Presión Adecuada**:
+    <p>
+      Aplica una presión moderada a alta para asegurar una lectura óptima.
+    </p>
+3. **Tiempo de Contacto**:
+    <p>
+      Mantén el dedo en el captor unos segundos adicionales hasta que la aplicación inicie el nuevo conteo.
+    </p>
+4. **Limpieza Regular**:
+    <p>
+      Limpia el huellero de manera periódica, especialmente por motivos de higiene, en el contexto de medidas preventivas contra COVID-19.
+    </p>
+5. **Hidratación de los Dedos**:
+    <p>
+      Si es necesario, humedece ligeramente los dedos del cliente con un producto sin alcohol para mejorar la lectura de la huella.
+    </p>
+
+</Steps>
+
+
+### No Recepción de Tokens en Correos o Teléfonos
+
+Si los asesores no reciben los tokens debido a datos incorrectos, deberán crear un caso a través de la **mesa de ayuda**, seleccionando la tipología de **fallas OIM**. 
+
+Es importante que proporcionen los datos correctos, incluyendo el correo corporativo y el número de celular actualizado.
+
+### No Detección del Software del Captor:
+
+Tienes dos opciones para resolver este tema:
+
+<Tabs>
+  <TabItem label="Cerrar sesión">Cerrar sesión y volver a ingresar al equipo.</TabItem>
+  <TabItem label="Reiniciar servicio">
+    <Steps>
+      1. Presiona la tecla **Windows** en tu teclado.
+      2. Escribe **"Servicios"** en la barra de búsqueda.
+      3. Haz clic en la aplicación **"Servicios"** que aparecerá en los resultados.
+      4. Dentro de la ventana de Servicios, busca el servicio **"Fingerprint"** en la lista.
+      5. Haz doble clic en **"Fingerprint"** para abrir sus propiedades.
+      6. En las **propiedades** del servicio, selecciona la opción **"Iniciar"** para activar el servicio.
+    </Steps> 
+  </TabItem>
+</Tabs>
+ 
+### Cambio de Fecha de Expedición de la Cédula:
+
+Para modificar la fecha de expedición de la cédula, es necesario **cancelar la transacción actual** en el sistema de biometría. 
+
+Para ello, haz clic en la **esquina superior izquierda**. Luego, vuelve a ingresar al sistema para reiniciar el proceso desde el formulario inicial.
+
+### Excepciones: Cliente sin Forma de Recibir Tokens
+Si el cliente **no tiene acceso** a su celular se debe registrar su correo electrónico. 
+
+En lugar del número de celular del cliente, se debe ingresar el **número del coordinador o responsable del centro de experiencia**.
+
+### Ingreso al Proceso de Excepción
+Para iniciarl el proceso de excepción, en la **esquina superior izquierda**, se encuentra el logo de Movistar. Haz clic en este ícono.
+
+En la nueva ventana selecciona el flujo de **Confronta** o **Excepción** para continuar con el proceso.
+
+### Problemas con Aplicativos de Biometría
+Los **responsables o los analistas** deben generar un caso a través de **Frida**:
+
+- Seleccionando la opción **Equipos de Cómputo** 
+- Luego **Fallas de Equipos y Periféricos**
+- Esto permitirá que alguien de la mesa de soporte los contacte para validar y solucionar el problema.
+
+### No se Puede Obtener la MAC
+Si no se detecta la MAC del equipo en un entorno Citrix, sigue los siguientes pasos:
+<Steps>
+  1. **Reiniciar el escritorio virtual**: En Citrix, debes reiniciar el escritorio virtual como primera opción.
+  2. **Acceder al archivo de la MAC**: 
+      - Abre una carpeta en Citrix.
+      - En la barra de direcciones, escribe: C:\Captura.
+      - Busca el archivo mac.txt
+      - Este archivo debe contener información en el siguiente formato:           
+          **usuario de red; fecha; mac; ip**.
+  3. **Si el archivo mac.txt no está completo**:
+      - Reinicia el escritorio virtual.
+      - Reinicia el thin client.
+  4. **Pantallas negras al iniciar**: Al reiniciar, aparecerán dos pantallas negras que no debes cerrar manualmente. Estas se cerrarán automáticamente una vez que el archivo mac.txt se haya llenado correctamente.
+  5. **Si el problema persiste**: Es probable que sea un **problema del equipo**. En este caso, se debe generar un caso a través de **Frida**:
+      - Seleccionando la opción **Equipos de Cómputo** 
+      - Luego **Fallas de Equipos y Periféricos**
+      - Esto permitirá que alguien de la mesa de soporte los contacte para validar y solucionar el problema.
+</Steps>
+
+### Falla en Migrate
+
+Si se encuentra una falla en el **proceso de migración** donde la validación es exitosa pero al intentar continuar en Greta no es posible, se deben seguir estos pasos:
+
+<Steps>
+1. **Verificar los Datos de Entrada**: 
+    - Asegúrate de que el número de cédula, nombres y tiempos de confronta estén correctamente actualizados.
+    - El tiempo para confronta debe ser de **30 minutos** y para huellas de **60 minutos**.
+
+2. **Consumir el Servicio de Migración**:
+    - Realiza una solicitud POST al siguiente servicio de migración: 
+      ```
+      https://biometrics.telefonica.co/bio-wab-migrate/Migrate
+      ```
+    - En el cuerpo de la solicitud POST, incluye los siguientes parámetros:
+      ```json
+      {
+        "docNumber": "123456",
+        "lastName": "Perez",
+        "name": "Pablo",
+        "idType": "1",
+        "Nut": "7k7qugyz8fki",
+        "userName": "jeosorioal",
+        "minutes": 30,
+        "apikey": "b+fEQF+k9kSUnALTGFphiA=="
+      }
+      ```
+3. **Actualizar la Información**:
+    - Actualiza el número de cédula, los nombres del cliente y el tiempo de confronta.
+    - El tiempo para confronta debe ser de **30 minutos** y para huellas de **60 minutos**.
+
+4. **Respuesta del Servicio**:
+   - La respuesta del servicio será la siguiente:
+     ```json
+     {
+         "Error": 0,
+         "Message": "Exito",
+         "Values": ""
+     }
+     ```
+   - Si recibes esta respuesta, significa que el servicio se ha ejecutado correctamente.
+
+5. **Verificar el Resultado**: Después de consumir el servicio, prueba nuevamente en Greta para comprobar si ahora puedes continuar con el proceso.
+</Steps>
+
+
+### Reporte de Error Bloqueo por Gateway
+
+Si se reporta el error relacionado con el bloqueo del gateway debido a la encriptación del CRM, sigue estos pasos:
+
+1. **Solicitar la URL**:
+   - Primero, pide la URL que está siendo bloqueada. Este bloqueo ocurre debido a la encriptación del CRM, por lo que se debe permitir el acceso a esa URL.
+
+2. **Crear un Caso en Cloud**:
+   - Una vez obtenida la URL, crea un caso en el sistema de soporte de Cloud para reportar el problema y gestionar la solución.
+
+3. **Solicitar Apoyo para Crear el Caso**:
+   - Si no puedes crear el caso por ti mismo o necesitas asistencia, pide apoyo a un equipo especializado para asegurar que el caso sea creado correctamente y se tomen las acciones necesarias.
+
+
+### Migración de Usuarios a la Biometría Cloud
+
+Para migrar los usuarios a la Biometría Cloud, sigue estos pasos:
+
+1. **Conectarse a la Base de Datos de Biometría**: Accede a la base de datos de biometría donde se almacenan los parámetros de configuración.
+
+2. **Consultar los Códigos de los Vendedores**: Realiza la siguiente consulta SQL para obtener los códigos de los vendedores actuales:
+     ```sql
+     SELECT VALOR_PARAMETRO FROM TB_CERO_PAPEL_PARAMETRO WHERE ID_PARAMETRO = 2322;
+     ```
+
+3. **Agregar Códigos de Usuarios**: 
+    - Si necesitas agregar usuarios a la Biometría Cloud, debes incluir los códigos de los usuarios separados por **`;`**.
+    - Asegúrate de no dejar espacios adicionales ni caracteres innecesarios.
+    - La consulta para agregar los códigos será
+     ```sql
+     UPDATE TB_CERO_PAPEL_PARAMETRO SET VALOR_PARAMETRO = 'codigos' WHERE ID_PARAMETRO = 2322;
+     ```
+
+4. **Quitar Códigos de Usuarios**:
+   - Para quitar usuarios, elimina únicamente los códigos de los usuarios que deseas excluir, dejando los códigos de los usuarios requeridos.
+   - Asegúrate de no dejar dos puntos consecutivos (`;;`), ya que esto otorgaría acceso a todos los usuarios. 
+   - La consulta para quitar los códigos será similar a la de agregar, pero con los códigos modificados.
+    ```sql
+    UPDATE TB_CERO_PAPEL_PARAMETRO SET VALOR_PARAMETRO = 'codigos' WHERE ID_PARAMETRO = 2322;
+    ```
+
+5. **Ejecutar la Actualización**:
+   - Una vez que hayas agregado o quitado los códigos de los usuarios, ejecuta la consulta `UPDATE` para actualizar la base de datos con los nuevos valores.
+     ```sql
+     UPDATE TB_CERO_PAPEL_PARAMETRO SET VALOR_PARAMETRO = 'codigos_actualizados' WHERE ID_PARAMETRO = 2322;
+     ```

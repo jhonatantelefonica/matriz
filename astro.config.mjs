@@ -26,6 +26,10 @@ export default defineConfig({
           label: "Inicio",
           items: [{ label: "Listado", slug: "inicio" }],
         },
+        {
+          label: "Biometría",
+          autogenerate: { directory: "biometria" },
+        },
       ],
     }),
     tailwind({
