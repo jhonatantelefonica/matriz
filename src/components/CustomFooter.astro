@@ -1,0 +1,21 @@
+---
+const year = new Date().getFullYear();
+const team = "Kaizen";
+const company = "Telefónica";
+
+import type { Props } from "@astrojs/starlight/props";
+import Default from "@astrojs/starlight/components/Footer.astro";
+---
+
+<footer class="grid col-auto">
+  <Default {...Astro.props}>
+    <slot />
+  </Default>
+  <div class="relative w-full bg-white rounded-lg m-4 dark:bg-gray-800">
+    <div class="w-full mx-auto max-w-screen-xl p-4 flex items-center justify-center">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+        {year} - {team}- {company}
+      </span>
+    </div>
+  </div>
+</footer>

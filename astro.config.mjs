@@ -1,28 +1,35 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
+import { defineConfig } from "astro/config";
+import starlight from "@astrojs/starlight";
+
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [
-		starlight({
-			title: 'My Docs',
-			social: {
-				github: 'https://github.com/withastro/starlight',
-			},
-			sidebar: [
-				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
-			],
-		}),
-	],
+  integrations: [
+    starlight({
+      title: "Matriz de Conocimiento",
+      components: {
+        Footer: "./src/components/CustomFooter.astro",
+      },
+      customCss: ["./src/tailwind.css", "./src/styles/colors.css"],
+      logo: {
+        src: "./src/assets/logo.webp",
+        replacesTitle: false,
+        alt: "Kaizen",
+      },
+      social: {
+        // github: 'https://github.com/withastro/starlight',
+      },
+      sidebar: [
+        {
+          label: "Inicio",
+          items: [{ label: "Listado", slug: "inicio" }],
+        },
+      ],
+    }),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
 });
