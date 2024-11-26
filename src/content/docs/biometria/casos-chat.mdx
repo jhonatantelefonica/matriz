@@ -17,12 +17,10 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 ### Toma de huellas
 
 <Steps>
-
 1. **Colocación del Dedo**:
     <p>
       Asegúrate de que el dedo se coloque en el lector de huellas cubriendo la mayor parte de la superficie de la pantalla.
-    </p>
-    
+    </p>    
 2. **Presión Adecuada**:
     <p>
       Aplica una presión moderada a alta para asegurar una lectura óptima.
@@ -39,10 +37,8 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
     <p>
       Si es necesario, humedece ligeramente los dedos del cliente con un producto sin alcohol para mejorar la lectura de la huella.
     </p>
-
 </Steps>
-
-
+ 
 ### No Recepción de Tokens en Correos o Teléfonos
 
 Si los asesores no reciben los tokens debido a datos incorrectos, deberán crear un caso a través de la **mesa de ayuda**, seleccionando la tipología de **fallas OIM**. 
@@ -113,13 +109,24 @@ Si no se detecta la MAC del equipo en un entorno Citrix, sigue los siguientes pa
 
 ### Falla en Proceso de migración (Migrate)
 
-Si se encuentra una falla en el **proceso de migración** donde la validación es exitosa pero al intentar continuar en Greta no es posible, se deben seguir estos pasos:
+Si se encuentra una falla en el **proceso de migración** donde la validación es exitosa pero al intentar continuar en Greta no es posible. 
+Error: "Falló la validación"
+
+<div class="flex justify-center w-full gap-4">
+  <div class="w-1/2 border">
+    !['Error Bloqueo por Gateway'](../imagenes/bio-migrate-falla-01.webp)
+  </div> 
+  <div class="w-1/2 border">
+    !['Error Bloqueo por Gateway'](../imagenes/bio-migrate-falla-02.webp)
+  </div>
+</div>
+
+Se deben seguir estos pasos:
 
 <Steps>
 1. **Verificar los Datos de Entrada**: 
     - Asegúrate de que el número de cédula, nombres y tiempos de confronta estén correctamente actualizados.
     - El tiempo para confronta debe ser de **30 minutos** y para huellas de **60 minutos**.
-
 2. **Consumir el Servicio de Migración**:
     - Realiza una solicitud POST al siguiente servicio de migración: 
       ```
@@ -137,11 +144,10 @@ Si se encuentra una falla en el **proceso de migración** donde la validación e
         "minutes": 30,
         "apikey": "b+fEQF+k9kSUnALTGFphiA=="
       }
-      ```
+     ```
 3. **Actualizar la Información**:
     - Actualiza el número de cédula, los nombres del cliente y el tiempo de confronta.
     - El tiempo para confronta debe ser de **30 minutos** y para huellas de **60 minutos**.
-
 4. **Respuesta del Servicio**:
    - La respuesta del servicio será la siguiente:
      ```json
@@ -152,7 +158,6 @@ Si se encuentra una falla en el **proceso de migración** donde la validación e
      }
      ```
    - Si recibes esta respuesta, significa que el servicio se ha ejecutado correctamente.
-
 5. **Verificar el Resultado**: Después de consumir el servicio, prueba nuevamente en Greta para comprobar si ahora puedes continuar con el proceso.
 </Steps>
 
@@ -161,27 +166,31 @@ Si se encuentra una falla en el **proceso de migración** donde la validación e
 
 Si se reporta el error relacionado con el bloqueo del gateway debido a la encriptación del CRM, sigue estos pasos:
 
+<div class="flex justify-center w-full">
+  <div class="w-3/4 border">
+    !['Error Bloqueo por Gateway'](../imagenes/bio_error_403.webp)
+  </div>
+</div>
+ 
+<Steps>
 1. **Solicitar la URL**:
    - Primero, pide la URL que está siendo bloqueada. Este bloqueo ocurre debido a la encriptación del CRM, por lo que se debe permitir el acceso a esa URL.
-
 2. **Crear un Caso en Cloud**:
    - Una vez obtenida la URL, crea un caso en el sistema de soporte de Cloud para reportar el problema y gestionar la solución.
-
 3. **Solicitar Apoyo para Crear el Caso**:
    - Si no puedes crear el caso por ti mismo o necesitas asistencia, pide apoyo a un equipo especializado para asegurar que el caso sea creado correctamente y se tomen las acciones necesarias.
-
+</Steps>
 
 ### Migración de Usuarios a la Biometría Cloud
 
 Para migrar los usuarios a la Biometría Cloud, sigue estos pasos:
 
+<Steps>
 1. **Conectarse a la Base de Datos de Biometría**: Accede a la base de datos de biometría donde se almacenan los parámetros de configuración.
-
 2. **Consultar los Códigos de los Vendedores**: Realiza la siguiente consulta SQL para obtener los códigos de los vendedores actuales:
      ```sql
      SELECT VALOR_PARAMETRO FROM TB_CERO_PAPEL_PARAMETRO WHERE ID_PARAMETRO = 2322;
      ```
-
 3. **Agregar Códigos de Usuarios**: 
     - Si necesitas agregar usuarios a la Biometría Cloud, debes incluir los códigos de los usuarios separados por **`;`**.
     - Asegúrate de no dejar espacios adicionales ni caracteres innecesarios.
@@ -189,7 +198,6 @@ Para migrar los usuarios a la Biometría Cloud, sigue estos pasos:
      ```sql
      UPDATE TB_CERO_PAPEL_PARAMETRO SET VALOR_PARAMETRO = 'codigos' WHERE ID_PARAMETRO = 2322;
      ```
-
 4. **Quitar Códigos de Usuarios**:
    - Para quitar usuarios, elimina únicamente los códigos de los usuarios que deseas excluir, dejando los códigos de los usuarios requeridos.
    - Asegúrate de no dejar dos puntos consecutivos (`;;`), ya que esto otorgaría acceso a todos los usuarios. 
@@ -197,12 +205,12 @@ Para migrar los usuarios a la Biometría Cloud, sigue estos pasos:
     ```sql
     UPDATE TB_CERO_PAPEL_PARAMETRO SET VALOR_PARAMETRO = 'codigos' WHERE ID_PARAMETRO = 2322;
     ```
-
 5. **Ejecutar la Actualización**:
    - Una vez que hayas agregado o quitado los códigos de los usuarios, ejecuta la consulta `UPDATE` para actualizar la base de datos con los nuevos valores.
      ```sql
      UPDATE TB_CERO_PAPEL_PARAMETRO SET VALOR_PARAMETRO = 'codigos_actualizados' WHERE ID_PARAMETRO = 2322;
      ```
+</Steps>
 
 ### Error de identidad Activa
  
