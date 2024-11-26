@@ -13,6 +13,8 @@ export default defineConfig({
         Footer: "./src/components/CustomFooter.astro",
       },
       customCss: ["./src/tailwind.css", "./src/styles/colors.css"],
+      defaultLocale: "root",
+      locales: { root: { label: "Español", lang: "es" } },
       logo: {
         src: "./src/assets/logo.webp",
         replacesTitle: false,
