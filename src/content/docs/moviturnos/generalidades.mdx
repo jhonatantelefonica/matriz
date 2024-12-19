@@ -1,0 +1,99 @@
+---
+title: Casos Moviturnos  
+sidebar:
+  label: Casos generales
+
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 4
+ 
+prev: false
+next: false
+
+---
+import { Card } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components';
+
+### Enlaces
+
+- Url TV: https://moviturnotv.telefonicawebsites.co/tv 
+- Url Atril: https://moviturno.telefonicawebsites.co
+
+### Atril o Tv sin inicio de sesión automático
+
+<Steps>
+
+1. Se debe ingresar a **Telefonica Meshcentral** 
+
+   ```js
+   https://meshcentral1.telefonicawebsites.co/login
+   ```
+
+2. Ingresar al equipo reportado lista de dispositivos: **Dispositivos Moviturnos.xlsx**
+
+   ```js
+   https://telefonicacorp.sharepoint.com/:x:/r/sites/Canales.TMHNH/_layouts/15/Doc.aspx?sourcedoc={159CAB37-BA23-4D17-93A8-AFD81B2D4DFE}&&file=Dispositivos Moviturnos.xlsx&&action=default&&mobileredirect=true
+   ```
+
+3. Tener en cuenta las Credenciales:
+    <Card title="Credenciales">
+    - Nombre de Usuario: **MOVITURNOS_COL**
+    - Contraseña: **m0v1#C$L**
+    </Card> 
+
+4. Se debe buscar Regedit o Editor de registro y ejecutar como administrador:
+    <div class="flex justify-center w-full">
+      <div class="w-6/7">
+      !['Moviturnos Regedit'](../imagenes/moviturnos-regedit.webp)
+      </div>
+    </div>
+
+
+5. Validar que en siguiente ruta se encuentren estos 5 parámetros configurados:
+
+   ```js
+   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+
+   ```
+   
+   <Card title="Llaves">
+   - DefaultUserName: **MOVITURNOS_COL**
+   - DefaultPassword: **m0v1#C$L**
+   - DefaultDomainName: **NH**
+   - ForceAutoLogon: **1**
+   - AutoAdminLogon: **1** 
+   </Card>
+
+    <div class="flex justify-center w-full">
+      <div class="w-6/7">
+      !['Moviturnos Llaves'](../imagenes/moviturnos-llaves.webp)
+      </div>
+    </div>
+
+6. Si no se encuentra alguno debe agregarse dando clic derecho Nuevo - Valor de cadena, colocamos el Nombre: 
+    - DefaultUserName
+    - DefaultPassword
+    - DefaultDomainName
+    - ForceAutoLogon
+    - AutoAdminLogon
+
+    <div class="flex justify-center w-full">
+      <div class="w-6/7">
+      !['Moviturnos Nuevas Llaves'](../imagenes/moviturnos-new-llaves.webp)
+      </div>
+    </div>
+
+7. Damos clic sobre el campo recién creado y le damos modificar y colocamos el dato:
+    <div class="flex justify-center w-full">
+      <div class="w-6/7">
+      !['Moviturnos Actualizacion Llaves'](../imagenes/moviturnos-update-llaves.webp)
+      </div>
+    </div>
+
+</Steps>
+
+
+
+
+
+Se debe buscar Regedit o Editor de registro y ejecutar como administrador:
