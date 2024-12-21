@@ -11,8 +11,7 @@ prev: false
 next: false
 
 ---
-import { Card } from '@astrojs/starlight/components';
-import { Steps } from '@astrojs/starlight/components';
+import { Aside, Card, FileTree, Steps } from '@astrojs/starlight/components';
 
 ### Enlaces
 
@@ -92,8 +91,68 @@ import { Steps } from '@astrojs/starlight/components';
 
 </Steps>
 
+### Tv Centro de experiencia sin sonido 
 
+<Steps>
+1. Se debe validar que el dispositivo tenga el 100 de volumen de los altavoces
 
+    <div class="flex justify-center w-full">
+      <div class="w-6/7">
+      !['Moviturnos Nuevas Llaves'](../imagenes/moviturnos-sonido-1.webp)
+      </div>
+    </div>
 
+   <Aside type="caution" title="Tener en cuenta">
+     En algunos casos el sonido va por el mismo TV puede aparecer la marca del equipo 
+   </Aside>
 
-Se debe buscar Regedit o Editor de registro y ejecutar como administrador:
+    <div class="flex justify-center w-full">
+      <div class="w-6/7">
+      !['Moviturnos Nuevas Llaves'](../imagenes/moviturnos-sonido-2.webp)
+      </div>
+    </div>
+
+2. Si esta al 100 validar que tambien lo esté en:
+
+   <FileTree>
+    - `Configuración`
+      - `Sonido` 
+        - `Opciones avanzadas de Sonido` 
+          - `Preferencias de dispositivo y volumen de la aplicación`
+    </FileTree>
+
+    <div class="flex justify-center w-full">
+      <div class="w-6/7">
+      !['Moviturnos Configuración Sonido'](../imagenes/moviturnos-conf-sonido.webp)
+      </div>
+    </div>
+ 
+3. Si todos los parametros se encuentran bien, se debe limpiar cache y borrar cookies del navegador. 
+4. Cerrar y volver a ingresar al navegador colocar la Url de TV:
+
+   ```js
+   https://moviturnotv.telefonicawebsites.co/tv 
+   ```
+5. Solicitar al cordinador del CE o a la persona que reporto la incidencia que agregue el dispositivo.
+
+</Steps>
+
+### Dispositivo no encontrado en el Meshcentral
+
+    <div class="flex justify-center w-full">
+      <div class="w-6/7">
+      !['Moviturnos Equipo no encontrado'](../imagenes/moviturnos-no-encontrado.webp)
+      </div>
+    </div>
+
+Si solicitan algún requerimiento con un dispositivo y no se encuentra activo el dispositivo
+
+<Steps>
+1. Se debe solicitar al usuario reiniciar el dispositivos.
+2. Si después de reiniciar el dispositivo no se puede visualizar, se debe confirmar que el dispositivo que el equipo si tenga internet.
+3. Si el dispositivo tiene internet entonces se debe solicitar ayuda a **Carolina Taborda** para reinstalar el mesh en el equipo ya que no lo podemos visualizar como activo.
+
+    ```js
+    carolina.taborda@telefonica.com
+    ```
+</Steps>

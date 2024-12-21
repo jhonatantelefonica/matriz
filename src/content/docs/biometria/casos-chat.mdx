@@ -45,7 +45,7 @@ Si los asesores no reciben los tokens debido a datos incorrectos, deberán crear
 
 Es importante que proporcionen los datos correctos, incluyendo el correo corporativo y el número de celular actualizado.
 
-### No Detección del Software del Captor:
+### No Detección del Software del Captor
 
 Tienes dos opciones para resolver este tema:
 
@@ -63,7 +63,7 @@ Tienes dos opciones para resolver este tema:
   </TabItem>
 </Tabs>
  
-### Cambio de Fecha de Expedición de la Cédula:
+### Cambio de Fecha de Expedición de la Cédula
 
 Para modificar la fecha de expedición de la cédula, es necesario **cancelar la transacción actual** en el sistema de biometría. 
 
@@ -87,25 +87,39 @@ Los **responsables o los analistas** deben generar un caso a través de **Frida*
 - Esto permitirá que alguien de la mesa de soporte los contacte para validar y solucionar el problema.
 
 ### No se Puede Obtener la MAC
-Si no se detecta la MAC del equipo en un entorno Citrix, sigue los siguientes pasos:
-<Steps>
-  1. **Reiniciar el escritorio virtual**: En Citrix, debes reiniciar el escritorio virtual como primera opción.
-  2. **Acceder al archivo de la MAC**: 
-      - Abre una carpeta en Citrix.
-      - En la barra de direcciones, escribe: C:\Captura.
-      - Busca el archivo mac.txt
-      - Este archivo debe contener información en el siguiente formato:           
-          **usuario de red; fecha; mac; ip**.
-  3. **Si el archivo mac.txt no está completo**:
-      - Reinicia el escritorio virtual.
-      - Reinicia el thin client.
-  4. **Pantallas negras al iniciar**: Al reiniciar, aparecerán dos pantallas negras que no debes cerrar manualmente. Estas se cerrarán automáticamente una vez que el archivo mac.txt se haya llenado correctamente.
-  5. **Si el problema persiste**: Es probable que sea un **problema del equipo**. En este caso, se debe generar un caso a través de **Frida**:
-      - Seleccionando la opción **Equipos de Cómputo** 
-      - Luego **Fallas de Equipos y Periféricos**
-      - Esto permitirá que alguien de la mesa de soporte los contacte para validar y solucionar el problema.
-</Steps>
- 
+
+<Tabs>
+  <TabItem label="Citrix">
+     Si no se detecta la MAC del equipo en un entorno **Citrix**, sigue los siguientes pasos:
+     <Steps>
+       1. **Cerrar sesión y volver a ingresar al equipo**.
+       2. **Si el problema persiste**: Es probable que sea un **problema del equipo**. En este caso, se debe generar un caso a través de **Frida**:
+          - Seleccionando la opción **Equipos de Cómputo** 
+          - Luego **Fallas de Equipos y Periféricos**
+          - Esto permitirá que alguien de la mesa de soporte los contacte para validar y solucionar el problema.
+     </Steps>
+  </TabItem>
+  <TabItem label="DIFERENTE a Citrix">
+     Si no se detecta la MAC del equipo en un entorno **DIFERENTE a Citrix**, sigue los siguientes pasos:
+     <Steps>
+       1. **Reiniciar el escritorio virtual**: En el equipo, debes reiniciar el escritorio virtual como primera opción. (**Si no funciona, pasar al paso 5 si se desea agilizar**)
+       2. **Acceder al archivo de la MAC**: 
+          - Abre una carpeta en Citrix.
+          - En la barra de direcciones, escribe: C:\Captura.
+          - Busca el archivo mac.txt
+          - Este archivo debe contener información en el siguiente formato:           
+            **usuario de red; fecha; mac; ip**.
+       3. **Si el archivo mac.txt no está completo**:
+            - Reinicia el escritorio virtual.
+            - Reinicia el thin client.
+       4. **Pantallas negras al iniciar**: Al reiniciar, aparecerán dos pantallas negras que no debes cerrar manualmente. Estas se cerrarán automáticamente una vez que el archivo mac.txt se haya llenado correctamente.
+       5. **Si el problema persiste**: Es probable que sea un **problema del equipo**. En este caso, se debe generar un caso a través de **Frida**:
+          - Seleccionando la opción **Equipos de Cómputo** 
+          - Luego **Fallas de Equipos y Periféricos**
+          - Esto permitirá que alguien de la mesa de soporte los contacte para validar y solucionar el problema.
+       </Steps>
+  </TabItem>
+</Tabs>
 
 ### Falla en Proceso de migración (Migrate)
 
