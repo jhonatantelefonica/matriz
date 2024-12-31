@@ -29,6 +29,10 @@ export default defineConfig({
           items: [{ label: "Listado", slug: "inicio" }],
         },
         {
+          label: "Backoffice",
+          autogenerate: { directory: "backoffice" },
+        },
+        {
           label: "Biometría",
           autogenerate: { directory: "biometria" },
         },
