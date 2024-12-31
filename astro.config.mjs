@@ -40,6 +40,10 @@ export default defineConfig({
           label: "Moviturnos",
           autogenerate: { directory: "moviturnos" },
         },
+        {
+          label: "Ventas PAP",
+          autogenerate: { directory: "ventaspap" },
+        },
       ],
     }),
     tailwind({
