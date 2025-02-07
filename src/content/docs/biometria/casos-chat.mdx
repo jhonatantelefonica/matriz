@@ -11,6 +11,7 @@ prev: false
 next: false
 
 --- 
+import { Aside } from '@astrojs/starlight/components';
 import { Steps } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components'; 
 
@@ -63,6 +64,43 @@ Tienes dos opciones para resolver este tema:
   </TabItem>
 </Tabs>
  
+### Migración de Usuarios a la Biometría ONPREMISE a la Biometría Cloud
+
+
+<Aside type="caution">
+  Recordar que los usuarios que estén en el parámetro, están en ONPREMISE. Por defecto todos están en Biometría Cloud 
+</Aside>
+
+Para migrar los usuarios de la Biometría ONPREMISE a la Biometría Cloud, sigue estos pasos:
+
+<Steps>
+1. **Conectarse a la Base de Datos de Biometría**: Accede a la base de datos de biometría donde se almacenan los parámetros de configuración.
+2. **Consultar los Códigos de los Vendedores**: Realiza la siguiente consulta SQL para obtener los códigos de los vendedores actuales en ONPREMISE:
+     ```sql
+     SELECT VALOR_PARAMETRO FROM TB_CERO_PAPEL_PARAMETRO WHERE ID_PARAMETRO = 2327;
+     ```
+3. **Migrar de ONPREMISE a CLOUD**: 
+    - Debe **ELIMINAR** los códigos de los usuarios que deseas excluir, dejando los códigos de los usuarios requeridos.
+   - Asegúrate de no dejar dos puntos consecutivos (`;;`), ya que esto otorgaría acceso a todos los usuarios. 
+    - La consulta para agregar los códigos será
+     ```sql
+     UPDATE TB_CERO_PAPEL_PARAMETRO SET VALOR_PARAMETRO = 'codigos' WHERE ID_PARAMETRO = 2327;
+     ```
+4. **Migrar de CLOUD a ONPREMISE**:
+   - Debe **AGREGAR** los códigos de los usuarios que deseas incluir, dejando los códigos de los usuarios requeridos.
+   - Asegúrate de no dejar dos puntos consecutivos (`;;`), ya que esto otorgaría acceso a todos los usuarios. 
+   - La consulta para quitar los códigos será similar a la de agregar, pero con los códigos modificados.
+    ```sql
+    UPDATE TB_CERO_PAPEL_PARAMETRO SET VALOR_PARAMETRO = 'codigos' WHERE ID_PARAMETRO = 2327;
+    ```
+5. **Ejecutar la Actualización**:
+   - Una vez que hayas agregado o quitado los códigos de los usuarios, ejecuta la consulta `UPDATE` para actualizar la base de datos con los nuevos valores.
+     ```sql
+     UPDATE TB_CERO_PAPEL_PARAMETRO SET VALOR_PARAMETRO = 'codigos_actualizados' WHERE ID_PARAMETRO = 2327;
+     ```
+</Steps>
+
+
 ### Cambio de Fecha de Expedición de la Cédula
 
 Para modificar la fecha de expedición de la cédula, es necesario **cancelar la transacción actual** en el sistema de biometría. 
@@ -194,38 +232,7 @@ Si se reporta el error relacionado con el bloqueo del gateway debido a la encrip
 3. **Solicitar Apoyo para Crear el Caso**:
    - Si no puedes crear el caso por ti mismo o necesitas asistencia, pide apoyo a un equipo especializado para asegurar que el caso sea creado correctamente y se tomen las acciones necesarias.
 </Steps>
-
-### Migración de Usuarios a la Biometría Cloud
-
-Para migrar los usuarios a la Biometría Cloud, sigue estos pasos:
-
-<Steps>
-1. **Conectarse a la Base de Datos de Biometría**: Accede a la base de datos de biometría donde se almacenan los parámetros de configuración.
-2. **Consultar los Códigos de los Vendedores**: Realiza la siguiente consulta SQL para obtener los códigos de los vendedores actuales:
-     ```sql
-     SELECT VALOR_PARAMETRO FROM TB_CERO_PAPEL_PARAMETRO WHERE ID_PARAMETRO = 2322;
-     ```
-3. **Agregar Códigos de Usuarios**: 
-    - Si necesitas agregar usuarios a la Biometría Cloud, debes incluir los códigos de los usuarios separados por **`;`**.
-    - Asegúrate de no dejar espacios adicionales ni caracteres innecesarios.
-    - La consulta para agregar los códigos será
-     ```sql
-     UPDATE TB_CERO_PAPEL_PARAMETRO SET VALOR_PARAMETRO = 'codigos' WHERE ID_PARAMETRO = 2322;
-     ```
-4. **Quitar Códigos de Usuarios**:
-   - Para quitar usuarios, elimina únicamente los códigos de los usuarios que deseas excluir, dejando los códigos de los usuarios requeridos.
-   - Asegúrate de no dejar dos puntos consecutivos (`;;`), ya que esto otorgaría acceso a todos los usuarios. 
-   - La consulta para quitar los códigos será similar a la de agregar, pero con los códigos modificados.
-    ```sql
-    UPDATE TB_CERO_PAPEL_PARAMETRO SET VALOR_PARAMETRO = 'codigos' WHERE ID_PARAMETRO = 2322;
-    ```
-5. **Ejecutar la Actualización**:
-   - Una vez que hayas agregado o quitado los códigos de los usuarios, ejecuta la consulta `UPDATE` para actualizar la base de datos con los nuevos valores.
-     ```sql
-     UPDATE TB_CERO_PAPEL_PARAMETRO SET VALOR_PARAMETRO = 'codigos_actualizados' WHERE ID_PARAMETRO = 2322;
-     ```
-</Steps>
-
+  
 ### Error de identidad Activa
  
 Este mensaje indica que ya tiene una validación deberían seguir con el proceso desde el CRM. No hay necesidad de hacer otra validación, debido a que con esta pueden firmar.
