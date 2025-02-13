@@ -23,7 +23,7 @@ export default defineConfig({
       social: {
         // github: 'https://github.com/withastro/starlight',
       },
-      sidebar: [ 
+      sidebar: [
         {
           label: "Inicio",
           items: [{ label: "Listado", slug: "inicio" }],
@@ -43,6 +43,10 @@ export default defineConfig({
         {
           label: "Ventas PAP",
           autogenerate: { directory: "ventaspap" },
+        },
+        {
+          label: "Embajadores Devops",
+          autogenerate: { directory: "embajadores" },
         },
       ],
     }),

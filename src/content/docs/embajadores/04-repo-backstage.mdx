@@ -1,0 +1,109 @@
+---
+title: "Creación de Repositorio en Backstage" 
+sidebar:
+  label: Repositorio en Backstage 
+
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 5
+ 
+prev: false
+next: false
+
+---
+import { Steps } from '@astrojs/starlight/components';
+
+A continuación se describe el proceso paso a paso para crear un nuevo repositorio en Backstage siguiendo los lineamientos de Telefónica.
+
+<Steps>
+1. **Entrar al Catálogo**
+
+   Accede al catálogo a través del siguiente enlace:  
+   [https://catalogo-telefonicaco.telefonicawebsites.co/](https://catalogo-telefonicaco.telefonicawebsites.co/)
+
+2. **"Crear"**
+
+   Haz clic en la opción "Crear" para comenzar el proceso.
+
+3. **Tipo de repositorio**
+
+   Se selecciona el tipo de repositorio que deseas utilizar. Consulta los diferentes frameworks disponibles en la sección de [Frameworks y Plantillas Autorizadas](#frameworks-y-plantillas-autorizadas).
+
+4. **Completar datos básicos**
+
+    Rellena los siguientes campos con la información correspondiente:
+    - **Nombre**: Debe seguir las reglas de nombramiento (ver [Lineamientos de nombramiento de microservicios](#lineamientos-de-nombramiento-de-microservicios)).
+    - **Descripción**: Breve descripción del microservicio.
+    - **Namespace**: Define el espacio de nombres para el servicio.
+    - **Organización**: Selecciona la organización correspondiente.
+    - **Proyecto**: Debe ser el mismo que el namespace.
+
+5. **Datos de Gobierno**
+
+    Completa los siguientes campos relacionados con el gobierno del servicio:
+
+    - **Consumidores**: Origen que consume el servicio.
+    - **Productores**: Destino que produce o consume el servicio.
+    - **Plataforma**: Lugar donde se desplegará el servicio (por ejemplo, AKS).
+    - **Integración**: Define si la integración será de `reuso`, `sin-reuso` o `reuso con aprobación`.
+    - **Segmento**: Segmento de negocio al que pertenece.
+    - **Producto**: Dominio funcional (dependerá del microservicio).
+    - **Visibilidad**: Indica si será visible en internet o no.
+
+6. **Creación del repositorio**
+    
+    Una vez que toda la información esté completa, procede a crear el repositorio a través de Backstage.
+
+</Steps>
+--- 
+
+### Lineamientos de Nombramiento de Microservicios
+
+#### Reglas Generales
+
+- El nombre del repositorio debe ser el mismo que el del microservicio y estar en **inglés**.
+- El nombre debe estar en minúsculas, utilizando guiones (`-`) para separar palabras (**kebab case**).
+- No incluir verbos o acrónimos como `crud`, `query`, `get`, `post`, `put`, `delete`.
+- Utiliza el plural en los nombres, como `activities`, `messages`, `inventories`.
+- Los nombres deben ser autodescriptivos. Evita diminutivos o abreviaciones.
+  - Ejemplo: un microservicio para la consulta de planes de un cliente debería llamarse `customer-plans`.
+- No uses prefijos que identifiquen la tecnología (`fs`, `ms`).
+- Evita nombres de la aplicación que consume el servicio o legados.
+- Los servicios del segmento **B2B** deben incluir el sufijo `b2b`: `service-name-b2b`.
+
+#### Reglas Particulares
+
+- **Micro Front**: Debe identificarse con el prefijo `front`, seguido del nombre de la aplicación. Ejemplo: `front-nombre-aplicación`.
+- **BFF**: Debe identificarse con el prefijo `bff`, seguido del canal (cuando aplique, `app/web`) y el nombre de la aplicación. Ejemplo: `bff-channel-nombre-aplicación`.
+- **Micros Simples**: Seguir las reglas generales.
+- **Micros Orquestadores**: Usar el prefijo `manage` seguido del objetivo o proceso que orquestará el micro. Ejemplo: `manage-identity`.
+- **CronJobs**: Usar el prefijo `cronjob` seguido del nombre de la funcionalidad. Ejemplo: `cronjob-functionality-name`.
+
+---
+
+### Frameworks y Plantillas Autorizadas
+
+#### API Gateways
+
+- **API GATEWAY con .NET Core**: Plantilla API Gateway como BFF en ASP.NET Core para actuar como punto central de orquestación.
+- **API GATEWAY con Spring Boot**: Plantilla API Gateway como BFF en Spring Boot.
+
+#### APIs REST
+
+- **API REST Manage Captcha con Spring Boot**: Plantilla para integrar un servicio de Captcha en Spring Boot.
+- **API REST con ASP.NET Core**: Plantilla para crear microservicios RESTful con ASP.NET Core.
+- **API REST CRUD con Spring Boot**: Plantilla CRUD para Productos y Clientes en Spring Boot.
+- **API REST con Spring Boot para Microservicios**: Plantilla RESTful para microservicios en Spring Boot.
+
+#### APIs SOAP
+
+- **API SOAP con Spring Boot para Microservicios**: Plantilla SOAP para microservicios en Spring Boot.
+
+#### Front-End
+
+- **Front-End Angular con Login**: Plantilla Angular con funcionalidad de Login.
+- **Front-End React TypeScript/JavaScript con Login**: Plantilla en React con Login integrado.
+
+#### Guía de SonarQube
+
+- **Guía para integrar SonarQube**: Configuración de SonarLint en IntelliJ y VS Code.

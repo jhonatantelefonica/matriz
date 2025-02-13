@@ -1,0 +1,35 @@
+---
+title: Versionamiento  
+sidebar:
+  label: Versionamiento 
+
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 5
+ 
+prev: false
+next: false
+
+--- 
+ 
+
+## **Introducción a Git**
+Git es un sistema de control de versiones distribuido que facilita la colaboración eficiente entre equipos de desarrollo de software.
+
+### **Características de Git**
+- **Distribuido:** Cada desarrollador tiene una copia completa del repositorio, lo que permite trabajar de forma independiente y sin conexión.
+- **Rendimiento:** Las operaciones se realizan localmente, lo que hace a Git rápido, reduciendo la latencia de la red.
+- **Seguridad:** Utiliza el algoritmo SHA-1 para asegurar la integridad de los datos.
+- **Flexibilidad:** Soporta diferentes flujos de trabajo, como el desarrollo basado en ramas y en Trunk.
+
+## **Trunk-based Development**
+El **desarrollo basado en Trunk** es una estrategia donde todos los desarrolladores trabajan en una única rama llamada 'Trunk'. Esta estrategia fomenta la **integración continua** y la **entrega continua** (CI/CD), resultando en un flujo de trabajo eficiente y menos conflictos de fusión.
+
+### **Ventajas del Trunk-based Development**
+- **Integración Continua:** Los desarrolladores integran su código varias veces al día, permitiendo detectar y resolver problemas rápidamente.
+- **Entrega Continua:** Cada cambio integrado puede desplegarse en una nueva versión del software, permitiendo una entrega rápida de nuevas características y correcciones.
+- **Menos Conflictos de Fusión:** Al trabajar todos en la misma rama, se reducen los conflictos en comparación con estrategias basadas en ramas.
+
+### **Descripción del Flujo de Trabajo**
+- **Trunk (Master):** Es la línea principal de desarrollo donde se integran continuamente todos los cambios.
+- **Ramas de Corta Duración:** Se crean ramas temporales para trabajar en tareas específicas, que se fusionan rápidamente de vuelta al Trunk.
