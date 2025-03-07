@@ -29,6 +29,10 @@ export default defineConfig({
           items: [{ label: "Listado", slug: "inicio" }],
         },
         {
+          label: "Requerimientos",
+          autogenerate: { directory: "req" },
+        },
+        {
           label: "Backoffice",
           autogenerate: { directory: "backoffice" },
         },

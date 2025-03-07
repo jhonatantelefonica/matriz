@@ -1,0 +1,127 @@
+---
+title: REQ - Cierre de Incidencias
+sidebar:
+  label: Cierre de Incidencias 
+
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 5
+ 
+prev: false
+next: false
+
+---
+import { Aside } from '@astrojs/starlight/components'; 
+import { Steps } from '@astrojs/starlight/components'; 
+
+<Aside  type="tip" title="Sugerencia"> 
+  - Hacerlo al final del día.
+  - Tener en cuenta que algunos usuarios solo ponen el requerimiento y ni avisan que les falla algo.
+</Aside> 
+
+### Cierre de Incidencias
+
+<Steps>
+1. ##### Iniciar Sesión en Remedy
+    <p>- Solicitar las Credenciales con el equipo</p>
+    
+2. ##### Buscar las Incidencias
+    - Aplicaciones
+    <div class="flex justify-center w-full">
+      <div class="w-3/4 border">
+        !['Aplicaciones'](../imagenes/req_cierre_aplicaciones.webp)
+      </div>
+    </div>  
+    
+    - Gestión de Incidencias
+    <div class="flex justify-center w-full">
+      <div class="w-3/4 border">
+        !['Gestión de Incidencias'](../imagenes/req_cierre_gestion_incidencias.webp)
+      </div>
+    </div>
+
+    - Consola de Incidencias
+    <div class="flex justify-center w-full">
+      <div class="w-3/4 border">
+        !['Consola de Incidencias'](../imagenes/req_cierre_consola_gestion_incidencias.webp)
+      </div>
+    </div> 
+
+3. ##### Filtrar
+    - Mostrar -> Asignado a todos mis grupos    
+    - Filtrar por -> Todas abiertas > Todas las prioridades
+    <div class="flex justify-center w-full">
+      <div class="w-3/4 border">
+        !['Todas abiertas'](../imagenes/req_cierre_filtrar_incidencias.webp)
+      </div>
+    </div> 
+    <div class="flex justify-center w-full">
+      <div class="w-3/4 border">
+        !['Requerimientos'](../imagenes/req_cierre_incidencias_abiertas.webp)
+      </div>
+    </div> 
+
+4. ##### Buscar y Gestionar
+    - Se copia el REQ y se busca en los chats o en los correos con información (Sugerencia)
+    - Se da doble clic en la incidencia para abrirla
+    <div class="flex justify-center w-full">
+      <div class="w-3/4 border">
+        !['Abrir incidencia'](../imagenes/req_cierre_incidencias_panel_gestion.webp)
+      </div>
+    </div> 
+    - Si se desea ver la descripción del caso se da clic en notas (Sugerencia)
+    <div class="flex justify-center w-full">
+      <div class="w-3/4 border">
+        !['notas incidencia'](../imagenes/req_cierre_incidencias_panel_gestion_notas.webp)
+      </div>
+    </div> 
+    - Se se desea ver el(los) adjunto(s) del caso, se deve validar si hay. El número aquí indica que hay 1.
+    <div class="flex justify-center w-full">
+      <div class="w-3/4 border">
+        !['notas incidencia'](../imagenes/req_cierre_incidencias_panel_gestion_adjunto_1.webp)
+      </div>
+    </div> 
+    - Para verlo, se debe descargar con este botón.
+    <div class="flex justify-center w-full">
+      <div class="w-3/4 border">
+        !['notas incidencia'](../imagenes/req_cierre_incidencias_panel_gestion_adjunto_2.webp)
+      </div>
+    </div>  
+    - Para cerrar el REQ, debe diligenciar los campos: 
+        - **Usuario asignado**: Cualquier integrante del equipo
+        - **Estado**: Resulto
+        - **Motivo del estado**: Solucionado con Optimización
+        - **Resolución**: Lo que se hizo.  Puede escribir lo que quiera -> Al lado hay un botón (verde) para hacer grande el TextArea
+    <div class="flex justify-center w-full">
+      <div class="w-3/4 border">
+        !['Resolver'](../imagenes/req_cierre_resuelto.webp)
+      </div>
+    </div> 
+    - Para guardar la resolución y que cambie el estado, se le da clic al botón guardar
+    <div class="flex justify-center w-full">
+      <div class="w-3/4 border">
+        !['Guardar'](../imagenes/req_cierre_guardar.webp)
+      </div>
+    </div> 
+    - El guardar cambia el estado   
+     <div class="flex justify-center w-full">
+      <div class="w-3/4 border">
+         !['Estado Antes '](../imagenes/req_cierre_incidente_ok_1.webp)
+      </div>
+    </div> 
+     <div class="flex justify-center w-full">
+      <div class="w-3/4 border">
+         !['Estado Después'](../imagenes/req_cierre_incidente_ok_2.webp)
+      </div>
+    </div>  
+
+5. ##### Deben gestionarse TODOS los REQ
+    <div class="flex justify-center w-full">
+      <div class="w-3/4 border">
+        !['Guardar'](../imagenes/req_cierre_completo.webp)
+      </div>
+    </div>  
+
+6. Fin
+</Steps>
+
