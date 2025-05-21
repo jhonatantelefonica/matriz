@@ -29,7 +29,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
     1. Ingresar al servidor de base de datos
     2. Ejecutar la siguiente Query:
        ```sql
-       SELECT numcuenta, numportabilidad from vpap.vpap.tb_rpa_convergent_sales where cuentaportabilidad = false order by id;
+       select numportabilidad "Numero movil", numcuenta "Código Cuenta", 'Inmediato' as "Modo Negocio" from vpap.vpap.tb_rpa_convergent_sales where cuentaportabilidad = false order by id;
        ```
        <div class="flex justify-center w-full">
           <div class="w-3/4 border">
@@ -41,7 +41,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
        <Aside type="caution">
        Se debe renombrar con la fecha actual, en el formato establecido. Para los primeros dias del mes, se debe anteponer el numero 0. 
        <br />
-       Ejemplo: **Reordenamiento 01_12_2024**
+       Ejemplo: **ReordenamientoCuentas_21_05_2025_Web.xlsx**
        </Aside>
        <div class="flex justify-center w-full">
           <div class="w-3/4 border">
@@ -57,8 +57,8 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
     
     4. Ingresar al servidor **Servnotifica**
     5. Ingresar a la ruta: 
-       ```js
-       \\srvfraude\servcliente\ESI_BO\REPORTE\DirectorioReportes\Procesos_Batch_BackOffice\Oferta Navidad\
+       ```js 
+       \\wbogvmrpa04\RPA\LOG_BOTS\P691_ReordenamientoCuentas
        ```
     6. Dejar el Excel en la ruta
     </Steps>
