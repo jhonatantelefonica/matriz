@@ -112,6 +112,21 @@ Para migrar los usuarios de la Biometría ONPREMISE a la Biometría Cloud, sigue
      ```
 </Steps>
 
+### Error de Listas Negras  
+Si aparece un error en el proceso de listas negras:
+
+<div class="flex justify-center w-full gap-4">
+  <div class="w-full border">
+    !['Error Bloqueo por Gateway'](../imagenes/bio-listas-negras-error.webp)
+  </div>
+</div>
+
+**Respuesta al usuario cuando el código existe**: 
+```json
+Este error se debe a que la validación de listas negras está recibiendo un dato está en blanco. 
+Para solucionar, se debe cerrar la ventana de biometria y volver a ingresar desde el CRM, de esa manera se cargará la data correctamente. 
+Además recordar que se debe tener solo una página de biometria abierta. 
+```   
 
 ### Cambio de Fecha de Expedición de la Cédula
 
