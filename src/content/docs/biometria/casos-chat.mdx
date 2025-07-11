@@ -292,3 +292,31 @@ Si aparece un error en el confronta "Sucedio una excepción, contactese con el a
 </div>
 
 Este error significa que Confronta salió **RECHAZADA**, el error que aparece es porque el proveedor no ha mapeado el error.
+
+### Habilitar y deshabilitar usuario como excepcionador
+
+<Aside type="caution">
+<p class="font-bold text-lg">Contexto del Excepcionador</p>
+<p>
+Cuando piden habilitar el excepcionador, están pidiendo que un usuario pueda permitir en el proceso de validación de cliente, que pueda "saltarse" la biometría dactilar y pase a hacer confronta.
+</p>
+<p class="font-bold text-lg">¿Cómo funciona?</p>
+<p>La excepción genera una nueva clave segura al usuario excepcionador para "tener evidencia que alguien dio el aval para el cambio de dactilar a confronta". </p>
+<p>Actualmente <span class="font-bold">TODOS LOS USUARIOS son excepcionadores</span>, por lo cual no se debe hacer nada, pero es mejor que no lo sepan (evitando así el fraude). </p>
+<p class="font-bold text-red-500">NO DECIR A NADIE QUE TODOS LOS USUARIO SON EXCEPCIONADORES</p>
+</Aside>
+
+Mientras se arregla el tema, se debe responder al usuario con dos (2) mensajes:
+
+**Mensaje 1**: 
+```json
+Confirmar estos 4 datos, por favor: 
+Fecha inicio, Fecha fin, Motivo de la solicitud y Usuario que se quiere agregar como excepcionador.
+```  
+Después que el usuario consteste con la información, se le envía el siguiente mensaje. 
+
+**Mensaje 2**: 
+```json
+Nuevo usuario excepcionador activado. 
+Por favor confirmar que los datos estén actualizados correctamente (en caso de requerirlo, generar caso en OIM). 
+```
